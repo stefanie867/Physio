@@ -15,7 +15,7 @@ interface Item {
   avatar: any;
 }
 
-export default function TabTwoScreen() {  
+export default function LanguageChangeScreen() {  
   const {t} = useTranslation();
 
   return (

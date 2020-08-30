@@ -1,8 +1,10 @@
 {
     "app.language.en": "Englisch",
     "app.language.de": "Deutsch",
+    "app.tab.title.one": "Tab Eins Titel",
+    "app.tab.title.languageChange": "Wechseln Sprache",
     
-    "hello": "Gruezi Welt",
-    "details": "Die Idee mit React Native ist mehr über aktuell Design als über Komponent Strukture.",
-    "button": "Schau jetzt"
+    "tab.one.title": "Gruezi Welt",
+    "tab.one.description": "Die Idee mit React Native ist mehr über aktuell Design als über Komponent Strukture.",
+    "tab.one.button": "Schau jetzt"
 }

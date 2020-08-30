@@ -6,13 +6,15 @@ import * as React from 'react';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import LanguageChangeScreen from '../screens/LanguageChangeScreen';
+import { BottomTabParamList, TabOneParamList, LanguageChangeParamList } from '../types';
+import { useTranslation } from 'react-i18next';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
+  const {t} = useTranslation();
 
   return (
     <BottomTab.Navigator
@@ -26,10 +28,10 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="LanguageChange"
+        component={LanguageChangeNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-globe" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -47,27 +49,29 @@ function TabBarIcon(props: { name: string; color: string }) {
 const TabOneStack = createStackNavigator<TabOneParamList>();
 
 function TabOneNavigator() {
+  const {t} = useTranslation();
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+        options={{ headerTitle: t('app.tab.title.one') }}
       />
     </TabOneStack.Navigator>
   );
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+const LanguageChangeStack = createStackNavigator<LanguageChangeParamList>();
 
-function TabTwoNavigator() {
+function LanguageChangeNavigator() {
+  const {t} = useTranslation();
   return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+    <LanguageChangeStack.Navigator>
+      <LanguageChangeStack.Screen
+        name="LanguageChangeScreen"
+        component={LanguageChangeScreen}
+        options={{ headerTitle: t('app.tab.title.languageChange') }}
       />
-    </TabTwoStack.Navigator>
+    </LanguageChangeStack.Navigator>
   );
 }
