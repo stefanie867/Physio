@@ -1,32 +1,50 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
+import { View } from '../components/Themed';
+// @ts-ignore
+import i18n, {languages} from '../i18n';
+import { useTranslation } from 'react-i18next';
+import { ListItem, Avatar } from 'react-native-elements';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+// @ts-ignore
+const changeLanguage = (event, id: string) => i18n.changeLanguage(id);
 
-export default function TabTwoScreen() {
+interface Item {
+  id: string;
+  title: string;
+  avatar: any;
+}
+
+export default function TabTwoScreen() {  
+  const {t} = useTranslation();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
+      {
+        languages.map((item: Item) => (
+          // @ts-ignore
+          <ListItem key={item.id} bottomDivider>
+            <Avatar
+              rounded
+              source={item.avatar}
+            />
+            <ListItem.Title style={styles.title} 
+              onPress={event => changeLanguage(event, item.id)}>
+              {t(item.title)}
+            </ListItem.Title>
+          </ListItem>
+        ))
+      }
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1
   },
   title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
+    fontSize: 16,
+    width: '100%'
+  }
 });

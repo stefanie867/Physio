@@ -1,4 +1,7 @@
 {
+    "app.language.en": "Englisch",
+    "app.language.de": "Deutsch",
+    
     "hello": "Gruezi Welt",
     "details": "Die Idee mit React Native ist mehr über aktuell Design als über Komponent Strukture.",
     "button": "Schau jetzt"
