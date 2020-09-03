@@ -25,6 +25,7 @@ export default function BottomTabNavigator() {
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          title: t('app.nav.title.one')
         }}
       />
       <BottomTab.Screen
@@ -32,6 +33,7 @@ export default function BottomTabNavigator() {
         component={LanguageChangeNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-globe" color={color} />,
+          title: t('app.nav.title.languageChange')
         }}
       />
     </BottomTab.Navigator>

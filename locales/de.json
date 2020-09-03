@@ -2,7 +2,9 @@
     "app.language.en": "Englisch",
     "app.language.de": "Deutsch",
     "app.tab.title.one": "Tab Eins Titel",
+    "app.nav.title.one": "Tab Eins",
     "app.tab.title.languageChange": "Wechseln Sprache",
+    "app.nav.title.languageChange": "Sprache",
     
     "tab.one.title": "Gruezi Welt",
     "tab.one.description": "Die Idee mit React Native ist mehr über aktuell Design als über Komponent Strukture.",
